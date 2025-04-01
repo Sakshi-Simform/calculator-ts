@@ -1,0 +1,33 @@
+{
+  "name": "scientificcalc-ts",
+  "version": "1.0.0",
+  "description": "## This  project shows the scientic calc focus area to create this ui design is:-",
+  "type": "module",
+  "scripts": {
+    "dev": "parcel serve ./src/index.html --port 5000",
+    "type-check": "tsc -b --noEmit",
+    "build": "npm run type-check && parcel build ./src/index.html --no-autoinstall --no-optimize",
+    "format": "prettier src --write",
+    "clean": "rm -rf dist .parcel-cache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sakshi-Simform/calculator-ts.git"
+  },
+  "keywords": [
+    "calculator",
+    "typeScript",
+    "parcel"
+  ],
+  "author": "sakshi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sakshi-Simform/calculator-ts/issues"
+  },
+  "homepage": "https://github.com/Sakshi-Simform/calculator-ts#readme",
+  "devDependencies": {
+    "parcel": "^2.14.4",
+    "typescript": "^5.8.2",
+    "prettier": "^3.5.3"
+  }
+}
