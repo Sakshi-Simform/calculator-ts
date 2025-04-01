@@ -6,5 +6,3 @@
     acosdeg: (x: number) => number;
     atandeg: (x: number) => number;
   }
-  
- 
