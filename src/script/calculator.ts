@@ -73,18 +73,6 @@ export class Calculator {
             return;
         }
 
-        if (operators.includes(lastChar)) {
-            this.screen.textContent += ""; // Append negative sign after an operator
-            return;
-        }
-
-        // Handle cases where a number is already negative and toggle
-        if (currentText.startsWith("-")) {
-            this.screen.textContent = currentText.substring(1); // Remove negative sign
-        } else {
-            this.screen.textContent = "-" + currentText; // Prepend negative sign
-        }
-
         if (this.calculationDone) {
             this.screen.textContent = "";
             this.calculationDone = false;
@@ -108,8 +96,10 @@ export class Calculator {
 
         if (this.screen.textContent === "0" && !operators.includes(value)) {
             this.screen.textContent = value;
+
         } else {
             this.screen.textContent += value;
+            console.log(value);
         }
         this.screen.scrollTo(this.screen.offsetWidth, 0);
     }
@@ -349,31 +339,16 @@ export class Calculator {
         return exponentValue.toFixed(3) + " × 10^" + exponent;
     }
 
-    //   toggleSign(): void {
-    //     console.log("sign")
-    //     const currentValue = parseFloat(this.screen.textContent || "0");
-    //     if (isNaN(currentValue)) {
-    //       this.screen.textContent = "Error";
-    //     } else {
-    //       this.screen.textContent = (currentValue * -1).toString();
-    //     }
-    //   }
-
     toggleSign(): void {
-        const currentText = this.screen.textContent || "0";
-
-        // If current text is only "0", just return "-0"
-        if (currentText === "0") {
-            this.screen.textContent = '';
-            return;
-        }
-
-        // If last entered value is a number, toggle its sign
-        if (!isNaN(Number(currentText))) {
-            this.screen.textContent = (parseFloat(currentText) * -1).toString();
-            return;
+        const currentValue = parseFloat(this.screen.textContent || "0");
+        if (isNaN(currentValue)) {
+            this.screen.textContent = "Error";
+        } else {
+            this.screen.textContent = (currentValue * -1).toString();
         }
     }
+
+
     eulersFormula(): void {
         const x = parseFloat(this.screen.textContent || "0");
         if (isNaN(x)) {
