@@ -65,8 +65,7 @@ import {
         calculator.xpowery();
       } else if (target.classList.contains("ten-power-btn")) {
         calculator.tenPowerX();
-      } else if (target.classList.contains("toggle-sign-btn")) {
-        calculator.toggleSign();
+      
       } else if (target.classList.contains("reciprocal-btn")) {
         calculator.reciprocal();
       }
@@ -108,7 +107,11 @@ import {
     document.querySelector(".tan-btn")?.addEventListener("click", () => {
       calculator.appendValue("tan(");
     });
-  
+    
+    document.querySelector("#toggle-sign")?.addEventListener("click", () => {
+        calculator.toggleSign();
+      });
+
     // Floor and ceil
     document
       .querySelector(".floor-btn")
