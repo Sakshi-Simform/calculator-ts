@@ -1,7 +1,6 @@
 // memory-clear-btn
 export function handleMC(): void {
     localStorage.removeItem("calculationOutput");
-    console.log("Memory Cleared");
   }
   
   // memory-recall btn
@@ -15,8 +14,6 @@ export function handleMC(): void {
     const memoryValue = localStorage.getItem("calculationOutput");
     if (memoryValue) {
       screen.textContent = inputvalue + memoryValue;
-    } else {
-      console.log("No memory value stored.");
     }
   }
   
@@ -52,6 +49,4 @@ export function handleMC(): void {
   
     const newMemoryValue = memoryValue + currentValue;
     localStorage.setItem("calculationOutput", newMemoryValue.toString());
-    console.log(`Memory Updated: ${newMemoryValue}`);
   }
-  
