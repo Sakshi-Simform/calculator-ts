@@ -3,7 +3,7 @@ const HISTORY_KEY = "calculationHistory";
 
 // save-history
 export const saveHistory = (historyEntry: string): void => {
-  let history: string[] = [];
+    let history: Array<string> = [];
   try {
     history = JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]");
   } catch (error) {
@@ -51,7 +51,7 @@ export const displayHistory = (): void => {
   ) as HTMLElement;
   const toggleHistoryButton = document.getElementById(
     "toggleHistoryButton"
-  ) as HTMLElement;
+  ) as HTMLButtonElement;
 
   if (!historyList || !historyContainer) {
     console.error("History list or container element not found.");
