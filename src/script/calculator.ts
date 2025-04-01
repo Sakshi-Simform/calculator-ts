@@ -4,10 +4,10 @@ import { ExtendedMath } from "./utils"
 
 export class Calculator {
   screen: HTMLElement;
-  calculationDone: boolean;
-  isDegreeMode: boolean;
-  isPrimary: boolean;
-  FEMode: boolean;
+  calculationDone: boolean=false;
+  isDegreeMode: boolean=true;
+  isPrimary: boolean=false;
+  FEMode: boolean=false;
   FEButton: HTMLElement;
   sinBtn: HTMLElement;
   cosBtn: HTMLElement;
@@ -22,34 +22,28 @@ export class Calculator {
     if (!this.screen) {
       throw new Error(`Screen element with id "${screenId}" not found.`);
     }
-    this.calculationDone = false;
     this.screen.textContent = localStorage.getItem("calculationOutput") || "0";
-    this.isDegreeMode = true;
     this.updateDegButton();
-    this.isPrimary = false;
-    this.FEMode = false;
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.math = Math as ExtendedMath;
     
 
-    // Constants for buttons
-    const FEButton = document.getElementById("fe-btn") as HTMLElement;
-    const sinBtn = document.querySelector(".sin-btn") as HTMLElement;
-    const cosBtn = document.querySelector(".cos-btn") as HTMLElement;
-    const tanBtn = document.querySelector(".tan-btn") as HTMLElement;
+    // // Constants for buttons
+     const FEButton = document.getElementById("fe-btn") as HTMLButtonElement;
 
     if (!FEButton) {
       console.error("F-E Button not found!");
     }
 
     this.FEButton = FEButton;
-    this.sinBtn = sinBtn;
-    this.cosBtn = cosBtn;
-    this.tanBtn = tanBtn;
+    this.sinBtn = document.querySelector(".sin-btn") as HTMLButtonElement;;
+    this.cosBtn = document.querySelector(".cos-btn") as HTMLButtonElement;;
+    this.tanBtn = document.querySelector(".tan-btn") as HTMLButtonElement;;
   }
 
   public handleKeyPress(this: Calculator, event: KeyboardEvent): void {
     const key: string = event.key;
+    if(!key) return;
 
     if (!isNaN(Number(key))) {
       this.appendValue(key);
@@ -112,11 +106,11 @@ export class Calculator {
 
   initializeMemoryFunctions(): void {
     // Constants for memory function buttons
-    const mcBtn = document.querySelector(".mc-btn") as HTMLElement;
-    const mrBtn = document.querySelector(".mr-btn") as HTMLElement;
-    const msBtn = document.querySelector(".ms-btn") as HTMLElement;
-    const mplusBtn = document.querySelector(".mplus-btn") as HTMLElement;
-    const mminusBtn = document.querySelector(".mminus-btn") as HTMLElement;
+    const mcBtn = document.querySelector(".mc-btn") as HTMLButtonElement;
+    const mrBtn = document.querySelector(".mr-btn") as HTMLButtonElement;
+    const msBtn = document.querySelector(".ms-btn") as HTMLButtonElement;
+    const mplusBtn = document.querySelector(".mplus-btn") as HTMLButtonElement;
+    const mminusBtn = document.querySelector(".mminus-btn") as HTMLButtonElement;
 
     mcBtn.addEventListener("click", () => handleMC());
     mrBtn.addEventListener("click", () => handleMR(this.screen));
@@ -281,7 +275,7 @@ export class Calculator {
   }
 
   setupDropdown(btnId: string, menuId: string): void {
-    const dropdownBtn = document.getElementById(btnId) as HTMLElement;
+    const dropdownBtn = document.getElementById(btnId) as HTMLButtonElement;
     const dropdownMenu = document.getElementById(menuId) as HTMLElement;
 
     if (!dropdownBtn || !dropdownMenu) {
@@ -352,7 +346,6 @@ export class Calculator {
       this.screen.textContent = "Error";
     } else {
       this.screen.textContent = (currentValue * -1).toString();
-      console.log(this.screen.textContent)
     }
   }
 
