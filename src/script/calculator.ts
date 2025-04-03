@@ -15,6 +15,7 @@ export class Calculator {
     isSecondPrimary: boolean = false;
     private math: ExtendedMath;
 
+
     constructor(screenId: string) {
         this.screen = document.getElementById(screenId) as HTMLElement;
         if (!this.screen) {
@@ -67,30 +68,12 @@ export class Calculator {
         const operators = ["+", "-", "×", "÷", ".", "!", "%"];
         const lastChar = currentText.slice(-1);
 
-        // Check if the input exceeds the 20 character limit
-        if (currentText.length >= 20) {
-            alert("Cannot exceed more than 20 input values");
-            return;
-        }
-
         if (this.calculationDone) {
             this.screen.textContent = "";
             this.calculationDone = false;
         }
 
         if (operators.includes(lastChar) && operators.includes(value)) {
-            return;
-        }
-
-        if (
-            value === "." &&
-            (lastChar === "." ||
-                currentText
-                    .split(/[\+\-\*\%\!/]/)
-                    .pop()
-                    ?.includes("."))
-        ) {
-            alert("Cannot enter multiple decimal values");
             return;
         }
 
@@ -121,14 +104,16 @@ export class Calculator {
             handleMplusAndMinus(
                 event.target,
                 this.screen,
-                (input) => input.textContent
+                (input) => input.textContent,
+                'add'
             )
         );
         mminusBtn.addEventListener("click", (event) =>
             handleMplusAndMinus(
                 event.target,
                 this.screen,
-                (input) => input.textContent
+                (input) => input.textContent,
+                'subtract'
             )
         );
     }
@@ -347,7 +332,6 @@ export class Calculator {
             this.screen.textContent = (currentValue * -1).toString();
         }
     }
-
 
     eulersFormula(): void {
         const x = parseFloat(this.screen.textContent || "0");
