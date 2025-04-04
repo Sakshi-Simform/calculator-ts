@@ -250,6 +250,15 @@ export class Calculator {
         }
     }
 
+    eulersFormula(): void{
+        const esymbol = "e";
+        if (this.screen.textContent === "0") {
+            this.appendValue(esymbol);
+        } else {
+            this.appendValue(`${esymbol}`);
+        }
+    }
+
     reciprocal(): void {
         const currentInput = this.screen.textContent || "";
         if (currentInput === "0") {
@@ -330,15 +339,6 @@ export class Calculator {
             this.screen.textContent = "Error";
         } else {
             this.screen.textContent = (currentValue * -1).toString();
-        }
-    }
-
-    eulersFormula(): void {
-        const x = parseFloat(this.screen.textContent || "0");
-        if (isNaN(x)) {
-            this.screen.textContent = "Error";
-        } else {
-            this.screen.textContent = Math.exp(x).toString();
         }
     }
 
