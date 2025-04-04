@@ -92,15 +92,15 @@ export class Calculator {
         const memoryclear = document.querySelector(".mc-btn") as HTMLButtonElement;
         const memorysrecall = document.querySelector(".mr-btn") as HTMLButtonElement;
         const memorystore = document.querySelector(".ms-btn") as HTMLButtonElement;
-        const memoryplus = document.querySelector(".mplus-btn") as HTMLButtonElement;
-        const memoryminus = document.querySelector(".mminus-btn") as HTMLButtonElement;
+        const memoryplusBtn = document.querySelector(".mplus-btn") as HTMLButtonElement;
+        const memoryminusBtn = document.querySelector(".mminus-btn") as HTMLButtonElement;
 
         memoryclear.addEventListener("click", () => handleMC());
         memorysrecall.addEventListener("click", () => handleMR(this.screen));
         memorystore.addEventListener("click", () =>
             handleMS(this.screen, (input) => input.textContent)
         );
-        memoryplus.addEventListener("click", (event) =>
+        memoryplusBtn.addEventListener("click", (event) =>
             handleMplusAndMinus(
                 event.target as HTMLButtonElement,
                 this.screen,
@@ -108,7 +108,7 @@ export class Calculator {
                 'add'
             )
         );
-        memoryminus.addEventListener("click", (event) =>
+        memoryminusBtn.addEventListener("click", (event) =>
             handleMplusAndMinus(
                 event.target as HTMLButtonElement,
                 this.screen,
