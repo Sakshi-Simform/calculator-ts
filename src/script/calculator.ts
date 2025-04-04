@@ -40,29 +40,6 @@ export class Calculator {
         this.tanBtn = document.querySelector(".tan-btn") as HTMLButtonElement;
     }
 
-    // public handleKeyPress(this: Calculator, event: KeyboardEvent): void {
-    //     const key: string = event.key;
-    //     if (!key) return;
-
-    //     if (!isNaN(Number(key))) {
-    //         this.appendValue(key);
-    //     } else if (key === "+") {
-    //         this.add();
-    //     } else if (key === "-") {
-    //         this.subtract();
-    //     } else if (key === "*") {
-    //         this.multiply();
-    //     } else if (key === "/") {
-    //         this.divide();
-    //     } else if (key === "Enter") {
-    //         this.result();
-    //     } else if (key === "Backspace") {
-    //         this.backspace();
-    //     } else if (key === "Escape" || key.toLowerCase() === "c") {
-    //         this.clearDisplay();
-    //     }
-    // }
-
     public handleKeyPress(this: Calculator, event: KeyboardEvent): void {
         const key: string = event.key;
         if (!key) return;
