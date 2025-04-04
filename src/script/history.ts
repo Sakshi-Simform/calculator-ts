@@ -1,7 +1,6 @@
 // Constants for localStorage keys
 const HISTORY_KEY = 'calculationHistory';
 
-// Interface for history item type
 interface HistoryItem {
     operation: string;
     result: string;
