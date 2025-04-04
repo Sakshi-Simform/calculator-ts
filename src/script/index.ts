@@ -35,7 +35,7 @@ const buttonActions: { [key: string]: ButtonAction } = {
     'abs-btn': () => calculator.absoluteValue(),
     'square-btn': () => calculator.square(),
     'sqrt-btn': () => calculator.sqrt(),
-    'second-btn': (target: HTMLElement) => calculator.toggleSecondPrimary(target),
+    'second-btn': (target: HTMLElement) => calculator.toggleSecond(target),
     'fe-btn': () => calculator.Femode(),
     'deg-btn': () => {
         if (typeof calculator !== 'undefined' && calculator.setDegMode) {
