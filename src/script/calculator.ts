@@ -12,7 +12,7 @@ export class Calculator {
     sinBtn: HTMLElement;
     cosBtn: HTMLElement;
     tanBtn: HTMLElement;
-    isSecondBtn: boolean = false;
+    SecondBtn: boolean = false;
     private math: ExtendedMath;
 
 
@@ -343,10 +343,10 @@ export class Calculator {
     }
 
     toggleSecond(button: HTMLElement) {
-        this.isSecondBtn = !this.isSecondBtn;
+        this.SecondBtn = !this.SecondBtn;
 
         // Toggle the button text
-        button.textContent = this.isSecondBtn ? "Primary" : "2nd";
+        button.textContent = this.SecondBtn ? "Primary" : "2nd";
 
         // Define primary and secondary functions
         const trigFunctions = [
@@ -358,7 +358,7 @@ export class Calculator {
         // Update button text and event listeners
         trigFunctions.forEach(({ btn, primary, secondary }) => {
             if (btn) {
-                const functionText = this.isSecondBtn ? secondary : primary;
+                const functionText = this.SecondBtn ? secondary : primary;
 
                 // Update button text
                 btn.textContent = functionText.replace("(", ""); // Display without parentheses
