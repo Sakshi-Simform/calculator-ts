@@ -89,18 +89,18 @@ export class Calculator {
 
     initializeMemoryFunctions(): void {
         // Constants for memory function buttons
-        const mcBtn = document.querySelector(".mc-btn") as HTMLButtonElement;
-        const mrBtn = document.querySelector(".mr-btn") as HTMLButtonElement;
-        const msBtn = document.querySelector(".ms-btn") as HTMLButtonElement;
-        const mplusBtn = document.querySelector(".mplus-btn") as HTMLButtonElement;
-        const mminusBtn = document.querySelector(".mminus-btn") as HTMLButtonElement;
+        const memoryclear = document.querySelector(".mc-btn") as HTMLButtonElement;
+        const memorysrecall = document.querySelector(".mr-btn") as HTMLButtonElement;
+        const memorystore = document.querySelector(".ms-btn") as HTMLButtonElement;
+        const memoryplus = document.querySelector(".mplus-btn") as HTMLButtonElement;
+        const memoryminus = document.querySelector(".mminus-btn") as HTMLButtonElement;
 
-        mcBtn.addEventListener("click", () => handleMC());
-        mrBtn.addEventListener("click", () => handleMR(this.screen));
-        msBtn.addEventListener("click", () =>
+        memoryclear.addEventListener("click", () => handleMC());
+        memorysrecall.addEventListener("click", () => handleMR(this.screen));
+        memorystore.addEventListener("click", () =>
             handleMS(this.screen, (input) => input.textContent)
         );
-        mplusBtn.addEventListener("click", (event) =>
+        memoryplus.addEventListener("click", (event) =>
             handleMplusAndMinus(
                 event.target as HTMLButtonElement,
                 this.screen,
@@ -108,7 +108,7 @@ export class Calculator {
                 'add'
             )
         );
-        mminusBtn.addEventListener("click", (event) =>
+        memoryminus.addEventListener("click", (event) =>
             handleMplusAndMinus(
                 event.target as HTMLButtonElement,
                 this.screen,
