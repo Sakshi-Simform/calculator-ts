@@ -66,7 +66,7 @@ export const displayHistory = (): void => {
 };
 
 // Render history list
-const renderHistoryList = (history: HistoryItem[], historyList: HTMLElement): void => {
+const renderHistoryList = (history: Array<HistoryItem>, historyList: HTMLElement): void => {
     historyList.innerHTML = ''; // Clear previous history list
 
     if (history.length === 0) {
