@@ -102,18 +102,18 @@ export class Calculator {
 
     initializeMemoryFunctions(): void {
         // Constants for memory function buttons
-        const memoryclear = document.querySelector(".mc-btn") as HTMLButtonElement;
-        const memorysrecall = document.querySelector(".mr-btn") as HTMLButtonElement;
-        const memorystore = document.querySelector(".ms-btn") as HTMLButtonElement;
-        const memoryplusBtn = document.querySelector(".mplus-btn") as HTMLButtonElement;
-        const memoryminusBtn = document.querySelector(".mminus-btn") as HTMLButtonElement;
+        const memoryClearBtn = document.querySelector(".mc-btn") as HTMLButtonElement;
+        const memorysRecallBtn = document.querySelector(".mr-btn") as HTMLButtonElement;
+        const memoryStoreBtn = document.querySelector(".ms-btn") as HTMLButtonElement;
+        const memoryPlusBtn = document.querySelector(".mplus-btn") as HTMLButtonElement;
+        const memoryMinusBtn = document.querySelector(".mminus-btn") as HTMLButtonElement;
 
-        memoryclear.addEventListener("click", () => handleMC());
-        memorysrecall.addEventListener("click", () => handleMR(this.screen));
-        memorystore.addEventListener("click", () =>
+        memoryClearBtn.addEventListener("click", () => handleMC());
+        memorysRecallBtn.addEventListener("click", () => handleMR(this.screen));
+        memoryStoreBtn.addEventListener("click", () =>
             handleMS(this.screen, (input) => input.textContent)
         );
-        memoryplusBtn.addEventListener("click", (event) =>
+        memoryPlusBtn.addEventListener("click", (event) =>
             handleMplusAndMinus(
                 event.target as HTMLButtonElement,
                 this.screen,
@@ -121,7 +121,7 @@ export class Calculator {
                 'add'
             )
         );
-        memoryminusBtn.addEventListener("click", (event) =>
+        memoryMinusBtn.addEventListener("click", (event) =>
             handleMplusAndMinus(
                 event.target as HTMLButtonElement,
                 this.screen,
