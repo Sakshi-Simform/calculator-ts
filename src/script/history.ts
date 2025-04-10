@@ -8,7 +8,7 @@ interface HistoryItem {
 
 // save-history
 export const saveHistory = (historyEntry: string): void => {
-    let history: HistoryItem[] = [];
+    let history: Array<HistoryItem> = [];
     try {
         history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
     } catch (error) {
@@ -44,7 +44,7 @@ export const clearHistory = (): void => {
 
 // display-history
 export const displayHistory = (): void => {
-    let history: HistoryItem[] = [];
+    let history: Array<HistoryItem> = [];
     try {
         history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
     } catch (error) {
